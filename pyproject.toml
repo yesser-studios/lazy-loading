@@ -1,6 +1,6 @@
 [project]
 name = "lazy-loading"
-version = "0.1.0.post2"
+version = "0.2.0"
 description = "A simple lazy module loader for python"
 readme = "README.md"
 authors = [
