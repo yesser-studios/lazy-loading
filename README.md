@@ -7,18 +7,8 @@ First, you'll need to `import lazy-loading`.
 
 To lazily load a package, use:
 ```python
-lazy-loading.lazyload("package")
+package = lazy-loading.lazyload("package")
 ```
-This will inject "package" into your global variables, meaning you can use package like usual.
-> [!TIP]
-> If you don't want to inject into globals, you can set the `inject` parameter as such:
-> ```python
-> package = lazy-loading.lazyload("package", False)
-> ```
-> `lazyload` will return the same `LazyModule` object it would inject into your global variables.
-> > Note:
-> > lazyload will return the object even if `inject` is `True`.
-
 You can lazily load submodules of your package:
 ```python
 lazy-loading.lazyload("mypacakge.submodule")
@@ -62,5 +52,5 @@ lazy-loading.lazyload("package.module")
 Imports called by lazily-loaded modules will not be lazy-loaded (unless the module uses lazy loading itself.)
 
 ### Global name injection
-In unusual contexts, global name injection may fail.
-To prevent this, you can assign the returned value of `lazyload` to a variable and possibly disable injection.
+Global name injection is not supported. You'll need to set a variable to the returned lazy-loaded package.
+It will replace itself with the lazy-loaded package when a symbol is accessed.
